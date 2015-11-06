@@ -44,7 +44,7 @@
             voice = @"fr-FR_ReneeVoice";
         
         
-        NSString *urlString = [NSString stringWithFormat:@"https://watson-mobile-translator.mybluemix.net/synthesize?text=%@&download=1&voice=%@&accept=audio/flac", phrase, voice ];
+        NSString *urlString = [NSString stringWithFormat:@"https://appname.mybluemix.net/synthesize?text=%@&download=1&voice=%@&accept=audio/flac", phrase, voice ];
         NSString* webStringURL = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         NSURL *flacURL = [NSURL URLWithString:webStringURL];
         

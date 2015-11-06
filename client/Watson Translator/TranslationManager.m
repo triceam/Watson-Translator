@@ -21,7 +21,7 @@
                                 @"target":language
                                 };
     
-    IMFResourceRequest * imfRequest = [IMFResourceRequest requestWithPath:@"https://watson-mobile-translator.mybluemix.net/translate" method:@"GET" parameters:params];
+    IMFResourceRequest * imfRequest = [IMFResourceRequest requestWithPath:@"https://appname.mybluemix.net/translate" method:@"GET" parameters:params];
     [imfRequest sendWithCompletionHandler:^(IMFResponse *response, NSError *error) {
         
         NSDictionary* json = response.responseJson;
