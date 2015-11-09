@@ -21,7 +21,7 @@
     
     
     IMFClient *imfClient = [IMFClient sharedInstance];
-    [imfClient initializeWithBackendRoute:@"https://watson-mobile-translator.mybluemix.net" backendGUID:@"81a422a5-3ced-4f83-89ca-bf230da4b802"];
+    [imfClient initializeWithBackendRoute:@"app route" backendGUID:@"app guid"];
     
     // capture and record uncaught exceptions (crashes)
     [IMFLogger captureUncaughtExceptions];
