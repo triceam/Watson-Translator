@@ -116,26 +116,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 -(void) recognizeFromImage:(UIImage*)image {
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^(void) {
@@ -148,8 +128,6 @@
         NSArray *words = [self.tesseract recognizedBlocksByIteratorLevel:G8PageIteratorLevelWord];
         self.processedImage = [self.tesseract imageWithBlocks:words drawText:YES thresholded:NO];
         
-        //[self.outputImage setImage:imageWithBlocks];
-        
         self.recognizedText = [self getConfidentResponse];
         
         
@@ -158,27 +136,6 @@
                 self.onCompletion();
             }
         });
-        
-        /*
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.progressView setProgress:1.0 animated:NO];
-            [self.progressViewLine setProgress:1.0 animated:NO];
-            self.preparedImage.image = imageWithBlocks;
-            [UIView animateWithDuration:0.75
-                                  delay:0.25
-                                options: UIViewAnimationCurveEaseOut
-                             animations:^{
-                                 self.preparedImage.alpha = 1.0;
-                                 self.originalImage.alpha = 0.0;
-                             }
-                             completion:nil];
-            
-            self.outputText.text = [NSString stringWithFormat:@"RECOGNIZED TEXT (confidence 55%%+):\n%@", recognizedText];
-        });
-        
-        [self requestTranslationWithText: recognizedText];
-        */
-        
     });
 }
 
@@ -257,12 +214,6 @@
 
 
 - (void)progressImageRecognitionForTesseract:(G8Tesseract *)tesseract {
-    //NSLog(@"progress: %lu", (unsigned long)tesseract.progress);
-    /*dispatch_async(dispatch_get_main_queue(), ^{
-        float progress = (float)tesseract.progress/100.0;
-        [self.progressView setProgress:progress animated:NO];
-        [self.progressViewLine setProgress:progress animated:NO];
-    });*/
     
     dispatch_async(dispatch_get_main_queue(), ^(void) {
         if (self.onProgress){
